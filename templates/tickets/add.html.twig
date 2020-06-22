@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Ticket{% endblock %}
+
+{% block body %}
+    <form action="/tickets/save" method="post">
+        <div class="form-group">
+            <label for="titleInput">Title</label>
+            <input type="text" class="form-control" id="titleInput" placeholder="Ticket title" name="title">
+        </div>
+        <div class="form-group">
+            <label for="descriptionInput">Description</label>
+            <textarea class="form-control" id="descriptionInput" rows="3" name="description" placeholder="Ticket description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="severityInput">Severity</label>
+            <select class="form-control" id="severityInput" name="severity">
+                <option value="1">INFO</option>
+                <option value="2">LOW</option>
+                <option value="3" selected>NORMAL</option>
+                <option value="4">HIGH</option>
+                <option value="5">URGENT</option>
+            </select>
+        </div>
+        <button class="btn btn-primary">Save</button>
+    </form>
+{% endblock %}

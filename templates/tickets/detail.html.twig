@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket Detail{% endblock %}
+
+{% block body %}
+    <h1>
+        <span class="badge badge-{{ severityClass[ticket.severity - 1] }}">{{ severityName[ticket.severity - 1] }}</span>
+        {{ ticket.title }}
+    </h1>
+    <i>{{ ticket.createdAt|date('H:i:s d/m/Y') }}</i>
+    <i>Created By: {{ ticket.createdBy.email }}</i>
+    <hr>
+    <p>{{ ticket.description }}</p>
+
+    {% if not ticket.done %}
+        <a href="/tickets/{{ ticket.id }}/done" class="btn btn-success" onclick="return confirm('Done?')">Mark as Resolved</a>
+    {% endif %}
+
+    <a href="/tickets/{{ ticket.id }}/remove" class="btn btn-danger" onclick="return confirm('Remove?')">Remove</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pendent Tickets{% endblock %}
+
+{% block body %}
+    <ul class="list-group">
+        {% if tickets|length  == 0 %}
+            <li class="list-group-item">No tickets added</li>
+        {% endif %}
+
+        {% for ticket in tickets %}
+            <a href="/tickets/{{ ticket.id }}" class="list-group-item list-group-item-action list-group-item-{{ severityClass[ticket.severity - 1] }}">{{ ticket.title }}</a>
+        {% endfor %}
+    </ul>
+{% endblock %}
