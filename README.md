@@ -1,4 +1,4 @@
-# SLIM - Tickets
+# symfony- Tickets
 
 This project was developed in Symfony
 
